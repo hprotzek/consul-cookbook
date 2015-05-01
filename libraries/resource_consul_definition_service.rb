@@ -12,11 +12,19 @@ class Chef::Resource::ConsulDefinitionService < Chef::Resource::LWRPBase
   actions(:create, :delete)
   default_action(:create)
 
-  attribute(:service_name,
+  attribute(:id,
     kind_of: String,
+    name_attribute: true)
+  attribute(:run_user,
+    kind_of: String,
+    required: true,
     cannot_be: :empty,
-    name_attribute: true,
-    required: true)
+    default: 'consul')
+  attribute(:run_group,
+    kind_of: String,
+    required: true,
+    cannot_be: :empty,
+    default: 'consul')
 
   attribute(:address,
     kind_of: [String, NilClass],
@@ -30,4 +38,7 @@ class Chef::Resource::ConsulDefinitionService < Chef::Resource::LWRPBase
   attribute(:checks,
     kind_of: [ConsulDefinitionCheck, Hash, NilClass],
     default: nil)
+
+  def to_json
+  end
 end

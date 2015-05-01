@@ -16,6 +16,16 @@ class Chef::Resource::ConsulDefinitionCheck < Chef::Resource::LWRPBase
     kind_of: [String, NilClass],
     name_attribute: true,
     default: nil)
+  attribute(:run_user,
+    kind_of: String,
+    required: true,
+    cannot_be: :empty,
+    default: 'consul')
+  attribute(:run_group,
+    kind_of: String,
+    required: true,
+    cannot_be: :empty,
+    default: 'consul')
 
   attribute(:http,
     kind_of: [String, NilClass],
@@ -32,4 +42,7 @@ class Chef::Resource::ConsulDefinitionCheck < Chef::Resource::LWRPBase
   attribute(:ttl,
     kind_of: [String, NilClass],
     default: nil)
+
+  def to_json
+  end
 end
