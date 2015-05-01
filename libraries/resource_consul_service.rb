@@ -36,6 +36,5 @@ class Chef::Resource::ConsulService < Chef::Resource::LWRPBase
     cannot_be: :empty)
 
   attribute(:extra_options,
-    kind_of: Array,
-    default: [])
+    kind_of: [Array, NilClass])
 end

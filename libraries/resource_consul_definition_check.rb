@@ -28,20 +28,15 @@ class Chef::Resource::ConsulDefinitionCheck < Chef::Resource::LWRPBase
     default: 'consul')
 
   attribute(:http,
-    kind_of: [String, NilClass],
-    default: nil)
+    kind_of: [String, NilClass])
   attribute(:interval,
-    kind_of: [String, NilClass],
-    default: nil)
+    kind_of: [String, NilClass])
   attribute(:notes,
-    kind_of: [String, NilClass],
-    default: nil)
+    kind_of: [String, NilClass])
   attribute(:script,
-    kind_of: [String, NilClass],
-    default: nil)
+    kind_of: [String, NilClass])
   attribute(:ttl,
-    kind_of: [String, NilClass],
-    default: nil)
+    kind_of: [String, NilClass])
 
   def to_json
   end

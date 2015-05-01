@@ -28,9 +28,9 @@ class Chef::Resource::ConsulWatch < Chef::Resource::LWRPBase
     required: true)
 
   attribute(:datacenter,
-    kind_of: String)
+    kind_of: [String, NilClass])
   attribute(:handler,
-    kind_of: String)
+    kind_of: [String, NilClass])
   attribute(:token,
-    kind_of: String)
+    kind_of: [String, NilClass])
 end

@@ -27,17 +27,13 @@ class Chef::Resource::ConsulDefinitionService < Chef::Resource::LWRPBase
     default: 'consul')
 
   attribute(:address,
-    kind_of: [String, NilClass],
-    default: nil)
+    kind_of: [String, NilClass])
   attribute(:port,
-    kind_of: [Integer, NilClass],
-    default: nil)
+    kind_of: [Integer, NilClass])
   attribute(:tags,
-    kind_of: [Array, String, NilClass],
-    default: nil)
+    kind_of: [Array, String, NilClass])
   attribute(:checks,
-    kind_of: [ConsulDefinitionCheck, Hash, NilClass],
-    default: nil)
+    kind_of: [ConsulDefinitionCheck, Hash, NilClass])
 
   def to_json
   end

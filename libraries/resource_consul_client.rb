@@ -35,6 +35,5 @@ class Chef::Resource::ConsulClient < Chef::Resource::LWRPBase
     cannot_be: :empty,
     required: true)
   attribute(:remote_checksum,
-    kind_of: [String, NilClass],
-    default: nil)
+    kind_of: [String, NilClass])
 end
