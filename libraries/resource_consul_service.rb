@@ -17,22 +17,24 @@ class Chef::Resource::ConsulService < Chef::Resource::LWRPBase
     cannot_be: :empty)
   attribute(:run_user,
     kind_of: String,
-    default: nil)
+    cannot_be: :empty,
+    required: true,
+    default: 'consul')
   attribute(:run_group,
     kind_of: String,
-    default: nil)
-
+    cannot_be: :empty,
+    required: true,
+    default: 'consul')
 
   attribute(:config_filename,
     kind_of: String,
     required: true,
-    cannot_be: :empty,
-    default: nil)
+    cannot_be: :empty)
   attribute(:config_dir,
     kind_of: String,
     required: true,
-    cannot_be: :empty,
-    default: nil)
+    cannot_be: :empty)
+
   attribute(:extra_options,
     kind_of: Array,
     default: [])

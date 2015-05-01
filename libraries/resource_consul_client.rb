@@ -19,23 +19,22 @@ class Chef::Resource::ConsulClient < Chef::Resource::LWRPBase
     kind_of: String,
     required: true,
     cannot_be: :empty,
-    default: nil)
+    default: 'consul')
   attribute(:run_group,
     kind_of: String,
     cannot_be: :empty,
     required: true,
-    default: nil)
+    default: 'consul')
+
   attribute(:remote_url,
     kind_of: String,
     cannot_be: :empty,
-    required: true,
-    default: nil)
+    required: true)
   attribute(:remote_version,
     kind_of: String,
     cannot_be: :empty,
-    required: true,
-    default: nil)
+    required: true)
   attribute(:remote_checksum,
-    kind_of: String,
+    kind_of: [String, NilClass],
     default: nil)
 end
