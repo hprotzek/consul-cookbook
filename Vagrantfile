@@ -1,3 +1,5 @@
+fail unless Vagrant.has_plugin?('vagrant-berkshelf')
+fail unless Vagrant.has_plugin?('vagrant-omnibus')
 Vagrant.configure('2') do |config|
   config.berkshelf.enabled = true
   config.omnibus.chef_version = :latest

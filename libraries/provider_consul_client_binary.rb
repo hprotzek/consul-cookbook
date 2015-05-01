@@ -14,21 +14,21 @@ class Chef::Provider::ConsulClientBinary < Chef::Provider::ConsulClient
       checksum new_resource.checksum
     end
 
-    libarchive_file ::File.basename(archive.path) do
+    libarchive_file File.basename(archive.path) do
       path archive.path
       extract_to new_resource.path
       extract_options :no_overwrite
       action :extract
     end
 
-    directory ::Dir.dirname(new_resource.filename) do
+    directory Dir.dirname(new_resource.filename) do
       recursive true
       owner 'root'
       group 'root'
       mode '00755'
     end
 
-    link ::File.join(new_resource.path, 'consul') do
+    link File.join(new_resource.path, 'consul') do
       to new_resource.filename
     end
   end

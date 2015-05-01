@@ -32,7 +32,7 @@ module ConsulCookbook
 
     def parsed_config_filename
       return new_resource.config_filename if new_resource.config_filename
-      ::File.join(parsed_config_dir, 'default.json')
+      File.join(parsed_config_dir, 'default.json')
     end
   end
 end

@@ -26,14 +26,14 @@ class Chef::Provider::ConsulClientSource < Chef::Provider::ConsulClient
       action :install
     end
 
-    directory ::Dir.dirname(new_resource.filename) do
+    directory Dir.dirname(new_resource.filename) do
       recursive true
       owner 'root'
       group 'root'
       mode '00755'
     end
 
-    link ::File.join(new_resource.path, 'consul') do
+    link File.join(new_resource.path, 'consul') do
       to new_resource.filename
     end
   end

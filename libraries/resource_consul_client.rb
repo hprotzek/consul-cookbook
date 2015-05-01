@@ -7,14 +7,35 @@
 
 class Chef::Resource::ConsulClient < Chef::Resource::LWRPBase
   self.resource_name = :consul_client
-  actions :create, :delete
-  default_action :create
+  actions(:create, :delete)
+  default_action(:create)
 
-  attribute :path, kind_of: String, name_attribute: true, required: true
-  attribute :run_user, kind_of: String, required: true, default: nil
-  attribute :run_group, kind_of: String, required: true, default: nil
-
-  attribute :url, kind_of: String, required: true, default: nil
-  attribute :version, kind_of: String, required: true, default: nil
-  attribute :checksum, kind_of: String, default: nil
+  attribute(:path,
+    kind_of: String,
+    name_attribute: true,
+    required: true,
+    cannot_be: :empty)
+  attribute(:run_user,
+    kind_of: String,
+    required: true,
+    cannot_be: :empty,
+    default: nil)
+  attribute(:run_group,
+    kind_of: String,
+    cannot_be: :empty,
+    required: true,
+    default: nil)
+  attribute(:remote_url,
+    kind_of: String,
+    cannot_be: :empty,
+    required: true,
+    default: nil)
+  attribute(:remote_version,
+    kind_of: String,
+    cannot_be: :empty,
+    required: true,
+    default: nil)
+  attribute(:remote_checksum,
+    kind_of: String,
+    default: nil)
 end

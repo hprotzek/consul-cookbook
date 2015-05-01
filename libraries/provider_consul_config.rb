@@ -7,13 +7,8 @@
 require_relative 'helpers'
 
 class Chef::Provider::ConsulConfig < Chef::Provider::LWRPBase
-  use_inline_resources if defined?(use_inline_resources)
-
   include ConsulCookbook::Helpers
-
-  def whyrun_supported?
-    true
-  end
+  provides :consul_config
 
   action :create do
     directory ::File.dirname(new_resource.path) do
@@ -42,4 +37,10 @@ class Chef::Provider::ConsulConfig < Chef::Provider::LWRPBase
       action :delete
     end
   end
+
+  def whyrun_supported?
+    true
+  end
+
+  use_inline_resources if defined?(use_inline_resources)
 end
