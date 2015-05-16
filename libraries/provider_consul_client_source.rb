@@ -6,6 +6,8 @@
 #
 
 class Chef::Provider::ConsulClientSource < Chef::Provider::ConsulClient
+  provides :consul_client
+
   action :create do
     include_recipe 'golang::default'
 

@@ -7,6 +7,7 @@
 
 class Chef::Resource::ConsulConfig < Chef::Resource::LWRPBase
   self.resource_name = :consul_config
+  provides(:consul_config)
   actions(:create, :delete)
   default_action(:create)
 

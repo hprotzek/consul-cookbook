@@ -28,5 +28,5 @@ Reading it from node's attributes" if value.nil?
   end
 end
 
-class Chef::Recipe; include ConsulCookbook::Encrypt; end
-class Chef::Resource; include ConsulCookbook::Encrypt; end
+Chef::Recipe.send(:include, ConsulCookbook::Encrypt)
+Chef::Resource.send(:include, ConsulCookbook::Encrypt)

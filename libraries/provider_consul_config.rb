@@ -7,6 +7,7 @@
 require_relative 'helpers'
 
 class Chef::Provider::ConsulConfig < Chef::Provider::LWRPBase
+  provides :consul_config
   include ConsulCookbook::Helpers
   provides :consul_config
 
